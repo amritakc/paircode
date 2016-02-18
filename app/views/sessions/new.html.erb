@@ -1,0 +1,12 @@
+<h1>Returning Users</h1>
+<form action = '/session/create' method = 'post'>
+	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+	Email:<input type = "text" name = "email"><br>
+	Password:<input type = "text" name = "password"><br>
+	<input type = "submit" value = "Login">
+</form>
+
+<a href = '/new'>New User</a>
+
+
+<%= flash[:errors] %>

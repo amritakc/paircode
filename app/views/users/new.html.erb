@@ -1,0 +1,21 @@
+<h1>New Users</h1>
+
+<form action = '/user/create' method = 'post'>
+	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+	<p>Name:<input type = "text" name = "user[name]"><p>
+	<p>Alias:<input type = "text" name = "user[alias]"><p>
+	<p>Email:<input type = "text" name = "user[email]"><p>
+	<p>Street:<input type = "text" name = "user[street]"><p>
+	<p>City:<input type = "text" name = "user[city]"><p>
+	<p>State:<input type = "text" name = "user[state]"><p>
+	<p>Password:<input type = "text" name = "user[password]"><p>
+	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"><br>
+	<p><input type = "submit" value = "Register">
+</form>
+
+
+<% if flash[:error] %>
+	<% flash[:error].each do |value| %>
+		 <%= value %><br>
+	<% end %>
+<% end %>
