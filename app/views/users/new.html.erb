@@ -2,14 +2,26 @@
 
 <form action = '/user/create' method = 'post'>
 	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
-	<p>Name:<input type = "text" name = "user[name]"><p>
-	<p>Alias:<input type = "text" name = "user[alias]"><p>
-	<p>Email:<input type = "text" name = "user[email]"><p>
-	<p>Street:<input type = "text" name = "user[street]"><p>
-	<p>City:<input type = "text" name = "user[city]"><p>
-	<p>State:<input type = "text" name = "user[state]"><p>
-	<p>Password:<input type = "text" name = "user[password]"><p>
-	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"><br>
+	<p>Name:<input type = "text" name = "user[name]"></p>
+	<p>Alias:<input type = "text" name = "user[alias]"></p>
+	<p>Email:<input type = "text" name = "user[email]"></p>
+	<p>Street:<input type = "text" name = "user[street]"></p>
+	<p>City:<input type = "text" name = "user[city]"></p>
+	<p>State:<input type = "text" name = "user[state]"></p>
+	<p><input type = "hidden" name = "user[latitude]" ></p>
+	<p><input type = "hidden" name = "user[longitude]" ></p>
+	<p>Password:<input type = "text" name = "user[password]"></p>
+	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"></p>
+	<p>Languages</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">Ruby/Rails</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">Python</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">JavaScript</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">Java</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">C#</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">PHP</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">IOS</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">SQL</p>
+	<p><input type = "checkbox" name="ruby" value="ruby">C++</p>
 	<p><input type = "submit" value = "Register">
 </form>
 

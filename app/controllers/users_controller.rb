@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_action :require_login, except: [:new, :create]
-	before_action :require_correct_user, only: [:show]
+	# before_action :require_login, except: [:new, :create]
+	# before_action :require_correct_user, only: [:show]
 
 	def new
 	end
@@ -18,11 +18,18 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		user = User.find(session[:user_id])
+		if user.geocoded?
+				@x = User.near(user.address, 10)
+
+
+		end
+		
 	end
 
 	private
 	def user_params
-		params.require(:user).permit(:name, :alias, :email, :street, :city, :state, :password, :password_confirmation)
+		params.require(:user).permit(:name, :alias, :email, :street, :city, :state, :longitude, :latitude, :password, :password_confirmation)
 	end
 
 end
