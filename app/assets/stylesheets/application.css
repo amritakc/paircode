@@ -1,3 +1,60 @@
+* {
+  font-family: Tahoma;
+}
+
+#pic, #login{
+
+	display: block;
+}
+#login {
+	width: 390px;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 80px;
+	/*border: 1px solid black;*/
+}
+
+#left{
+
+	display: inline-block;
+	padding-left:150px;
+	position:relative;
+	
+}
+#right{
+	float:right;
+	position:relative;
+	width: 30%;
+	padding-right: 300px;
+}
+
+h1 {
+	font-size: 40px;
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+body{
+	background-color: #DFDED4;
+	margin:0 auto;
+	text-align: center;
+}
+
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 

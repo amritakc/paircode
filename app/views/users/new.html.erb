@@ -1,6 +1,13 @@
+<div id= "pic">
+<%= image_tag("paircode_logo_2_for_light_bg.png")%>
+</div>
+
 <h1>New Users</h1>
 
+
+
 <form action = '/user/create' method = 'post'>
+	<div id = "left">
 	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
 	<p>Name:<input type = "text" name = "user[name]"></p>
 	<p>Alias:<input type = "text" name = "user[alias]"></p>
@@ -12,6 +19,8 @@
 	<p><input type = "hidden" name = "user[longitude]" ></p>
 	<p>Password:<input type = "text" name = "user[password]"></p>
 	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"></p>
+</div>
+<div id = "right">
 	<p>Languages</p>
 	<p><input type = "checkbox" name="ruby" value="1">Ruby/Rails</p>
 	<p><input type = "checkbox" name="python" value="2">Python</p>
@@ -23,9 +32,8 @@
 	<p><input type = "checkbox" name="sql" value="8">SQL</p>
 	<p><input type = "checkbox" name="Cplus" value="9">C++</p>
 	<p><input type = "submit" value = "Register">
+</div>
 </form>
-
-
 <% if flash[:error] %>
 	<% flash[:error].each do |value| %>
 		 <%= value %><br>
