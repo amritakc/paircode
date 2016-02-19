@@ -1,6 +1,5 @@
 <div id="left">
 
-
 <h1>Dashboard</h1>
 
 
@@ -18,17 +17,22 @@
 		<% end %>
 	<% end %>
 <% end %>
+<br>
+<br>
  <form action='/' method='post'>
     <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out'>
+    <input type='submit' value='Log Out' class="butts">
   </form>
 <br>
   <form action="/users/<%= @profile.id %>" method="post">
 	<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
 	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete Account">
+	<input type="submit" value="Delete Account" class="butts">
 </form>
+
+<br>
+<a href="/edit">Edit Profile</a>
 </div>
 <div id="right">
 <h2>Location of PairCoders</h2>
@@ -40,4 +44,6 @@
 <%= image_tag my_url %>
 <%end%>
 </div>
+
+
 

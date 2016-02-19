@@ -85,7 +85,45 @@ class UsersController < ApplicationController
 
 	def update
 		user = User.find(session[:user_id])
-		user.update_attributes(user_params)
+		User.find(session[:user_id]).update(name: params[:name])
+		User.find(session[:user_id]).update(email: params[:email])
+		User.find(session[:user_id]).update(alias: params[:alias])
+		User.find(session[:user_id]).update(street: params[:street])
+		User.find(session[:user_id]).update(city: params[:city])
+		User.find(session[:user_id]).update(state: params[:state])
+		
+		# if params[:ruby]
+		# Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:ruby]))
+		# end	
+		# if params[:python]
+		# Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:python]))
+		# else
+		# 	if Ninja.select("*").joins(:user).joins(:language).where("user_id=?", User.find(session[:user_id])).include?("Python") 
+		# 		Ninja.select("*").joins(:user).joins(:language).where("user_id=? and language_id = ?", User.find(session[:user_id]), Language.find(params[:python])).destroy
+		# 	end
+		# end
+		# if params[:javascript]
+		# Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:javascript]))
+		# end
+		# if params[:java]
+		# 		Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:java]))
+		# end
+		# if params[:C]
+		# 	Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:C]))
+		# end
+		# if params[:php]
+		# 	Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:php]))
+		# end
+		# if params[:ios]
+		# 	Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:ios]))
+		# end
+		# if params[:sql]
+		# 	Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:sql]))
+		# end
+		# if params[:Cplus]
+		# 	Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:Cplus]))
+		# end
+
 		redirect_to '/dashboard/%d' % session[:user_id]
 	end
 
