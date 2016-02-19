@@ -41,3 +41,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder'
 
 gem 'hirb'
+
+gem 'google_places'
+
+gem 'figaro'
+# $ bundle exec figaro install
+
