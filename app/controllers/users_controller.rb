@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 	def show
 		
 		user = User.find(session[:user_id])
-
+		@profile =  user
 		if user.geocoded?
 				@x = User.near(user.address, 10)
 				# @languages = Ninja.select("*").joins(:user).joins(:language).where("user_id=?", User.find(@x.id))
@@ -78,6 +78,21 @@ class UsersController < ApplicationController
 		# Restaurants.near("Rehoboth Beach, DE, US", 50)
 		# Restaurants.near("Rehoboth Beach, DE, US", 50)
 		# Place.near("statue of liberty").where(tags: [:hotel]).all
+	end
+	def edit
+		@profile = User.find(session[:user_id])
+	end
+
+	def update
+		user = User.find(session[:user_id])
+		user.update_attributes(user_params)
+		redirect_to '/dashboard/%d' % session[:user_id]
+	end
+
+	def delete
+		User.find(session[:user_id]).destroy
+		session.clear
+		redirect_to "/"
 	end
 
 	private
