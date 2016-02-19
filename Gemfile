@@ -42,7 +42,6 @@ gem 'geocoder'
 
 gem 'hirb'
 
-gem 'google_places'
 
 gem 'figaro'
 # $ bundle exec figaro install

@@ -83,5 +83,6 @@ test:
 production:
   <<: *default
   database: paircode_production
+  # username: 
   username: ubuntu
   password: <%= ENV['PAIRCODE_DATABASE_PASSWORD'] %>
