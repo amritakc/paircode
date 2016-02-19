@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :user_languages, dependent: :destroy
-	has_many :languages, through: :user_languages
+	has_many :ninjas, dependent: :destroy
+	has_many :languages, through: :ninjas
 
 	# attr_accessible :address, :latitude, :longitude
 	geocoded_by :address

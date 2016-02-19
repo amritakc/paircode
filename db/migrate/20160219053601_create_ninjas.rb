@@ -1,6 +1,6 @@
-class CreateUserLanguages < ActiveRecord::Migration
+class CreateNinjas < ActiveRecord::Migration
   def change
-    create_table :user_languages do |t|
+    create_table :ninjas do |t|
       t.references :user, index: true
       t.references :language, index: true
 

@@ -1,4 +1,4 @@
 class Language < ActiveRecord::Base
-	has_many :user_languages, dependent: :destroy
-	has_many :users, through: :user_languages
+	has_many :ninjas, dependent: :destroy
+	has_many :users, through: :ninjas
 end
