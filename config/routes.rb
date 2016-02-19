@@ -6,10 +6,18 @@ Rails.application.routes.draw do
 
    post '/user/create' => 'users#create'
 
-   get '/dashboard/:id' => 'users#show'
+  
 
    get '/new' => 'users#new'
 
+   get '/edit' => 'users#edit'
+
+   patch '/users/:id/update' => 'users#update'
+
+   delete '/users/:id' => 'users#delete'
+
    delete '/' => 'sessions#delete'
+
+   get '/dashboard/:id' => 'users#show'
 
 end

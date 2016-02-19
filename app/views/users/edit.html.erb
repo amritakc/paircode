@@ -1,0 +1,35 @@
+<h1>Edit Profile</h1>
+
+<form action = '/users/<%= @profile.id %>/update' method = 'post'>
+	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+	<input type='hidden' name='_method' value='patch'>
+	<p>Name:<input type = "text" name = "user[name]" value="<%= @profile.name%>"></p>
+	<p>Alias:<input type = "text" name = "user[alias]" value="<%= @profile.alias%>"></p>
+	<p>Email:<input type = "text" name = "user[email]" value="<%= @profile.email%>"></p>
+	<p>Street:<input type = "text" name = "user[street]"value="<%= @profile.street%>"></p>
+	<p>City:<input type = "text" name = "user[city]" value="<%= @profile.city%>"></p>
+	<p>State:<input type = "text" name = "user[state]"value="<%= @profile.state%>"></p>
+	<p><input type = "hidden" name = "user[latitude]" ></p>
+	<p><input type = "hidden" name = "user[longitude]" ></p>
+	<p>Password:<input type = "text" name = "user[password]"></p>
+	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"></p>
+	<p>Languages</p>
+	<p><input type = "checkbox" name="ruby" value="1">Ruby/Rails</p>
+	<p><input type = "checkbox" name="python" value="2">Python</p>
+	<p><input type = "checkbox" name="javascript" value="3">JavaScript</p>
+	<p><input type = "checkbox" name="java" value="4">Java</p>
+	<p><input type = "checkbox" name="C" value="5">C#</p>
+	<p><input type = "checkbox" name="php" value="6">PHP</p>
+	<p><input type = "checkbox" name="ios" value="7">IOS</p>
+	<p><input type = "checkbox" name="sql" value="8">SQL</p>
+	<p><input type = "checkbox" name="Cplus" value="9">C++</p>
+	<p><input type = "submit" value = "Submit">
+</form>
+
+<form action="/users/<%= @profile.id %>" method="post">
+	<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete Account">
+</form>
+<br>
+<a href="/dashboard/<%= @profile.id %>">Back</a>

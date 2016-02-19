@@ -3,18 +3,32 @@
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Log Out'>
   </form>
+<br>
+  <form action="/users/<%= @profile.id %>" method="post">
+	<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete Account">
+</form>
 
 
 <h1>Dashboard</h1>
 
-
+<div id="matches">
+<h3>PairCoders near you</h3>
 <% if @x %>
 	<% @x.each do |i| %>
-		<p><%= i.id %> - <%= i.name %></p>
+		<p><%= i.id %> - <%= i.alias %></p>
 		<p><%= i.email %></p>
-		<p>Languages: </p>
+		<p>Languages:</p>
+		
+		<% Ninja.select("*").joins(:user).joins(:language).where("user_id=?", User.find(i.id)).each do |z| %> 
+			<%= z.lang_name%>
+			<% end %>
+		
 	<% end %>
 <% end %>
+</div>
+<div id="map">
 <p>Map</p>
 <% if @x %>
 <% my_url = "http://maps.google.com/maps/api/staticmap?size=850x600&sensor=false&zoom=12" %>
@@ -23,5 +37,5 @@
 <% end %>
 <%= image_tag my_url %>
 <%end%>
-<h3>Meet up Locations</h3>
+</div>
 
