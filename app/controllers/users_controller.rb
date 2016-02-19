@@ -49,17 +49,18 @@ class UsersController < ApplicationController
 	def show
 		
 		user = User.find(session[:user_id])
-		user2 = User.find(3)
+
 		if user.geocoded?
 				@x = User.near(user.address, 10)
+				# @languages = Ninja.select("*").joins(:user).joins(:language).where("user_id=?", User.find(@x.id))
 		end
-		puts 
-		@client = GooglePlaces::Client.new(ENV['google_places_key'])
+	
+		# @client = GooglePlaces::Client.new(ENV['google_places_key'])
 		# render :text => ENV['google_places_key']
 		# @client.spots(user.latitude, user.longitude)
 		# render :text => Geocoder.search("library", :location=> {"lat"=> user.latitude, "lng"=>user.longitude})
-		lang = (user.latitude).to_s
-		long = (user.longitude).to_s
+		# lang = (user.latitude).to_s
+		# long = (user.longitude).to_s
 		# render :text => Geocoder.search("Starbucks", :bounds => [[user.latitude, user.longitude], [user2.latitude, user2.longitude]])
 		# render :text => Geocoder.spots(:bounds => [[user.latitude, user.longitude], [user2.latitude, user2.longitude]])
 		# render :text => 

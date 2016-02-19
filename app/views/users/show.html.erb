@@ -7,12 +7,16 @@
 
 <h1>Dashboard</h1>
 
-
 <% if @x %>
 	<% @x.each do |i| %>
 		<p><%= i.id %> - <%= i.name %></p>
 		<p><%= i.email %></p>
-		<p>Languages: </p>
+		<p>Languages:</p>
+		
+		<% Ninja.select("*").joins(:user).joins(:language).where("user_id=?", User.find(i.id)).each do |z| %> 
+			<%= z.lang_name%>
+			<% end %>
+		
 	<% end %>
 <% end %>
 <p>Map</p>
