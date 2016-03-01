@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
    patch '/users/:id/update' => 'users#update'
 
+   patch '/users/:id/update_language' => 'users#update_language'
+
    delete '/users/:id' => 'users#delete'
 
    delete '/' => 'sessions#delete'
