@@ -14,12 +14,14 @@ Rails.application.routes.draw do
 
    patch '/users/:id/update' => 'users#update'
 
-   patch '/users/:id/update_language' => 'users#update_language'
-
    delete '/users/:id' => 'users#delete'
 
    delete '/' => 'sessions#delete'
 
    get '/dashboard/:id' => 'users#show'
+
+   patch '/languages/:id/update' => 'languages#update'
+
+   delete '/languages/:id' => 'languages#destroy'
 
 end

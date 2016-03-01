@@ -74,14 +74,6 @@ class UsersController < ApplicationController
 		redirect_to '/dashboard/%d' % session[:user_id]
 	end
 
-	def update_language
-		params[:language].each do | x |
-			x.to_i
-			Ninja.create(user: User.find(session[:user_id]), language: Language.find(x))
-		end
-		redirect_to '/dashboard/%d' % session[:user_id]
-	end
-
 	def delete
 		User.find(session[:user_id]).destroy
 		# session.clear

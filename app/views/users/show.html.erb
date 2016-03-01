@@ -7,12 +7,11 @@
 <% if @x %>
 	<% @x.each do |i| %>
 		<% if i.id != session[:user_id] %>
-		<p><%= i.id %> - <%= i.alias %></p>
-		<p><%= i.email %></p>
-		<p>Languages:</p>
-		
-		<% Ninja.select("*").joins(:user).joins(:language).where("user_id=?", User.find(i.id)).each do |z| %> 
-			<%= z.lang_name%>
+			<p><%= i.id %> - <%= i.alias %></p>
+			<p><%= i.email %></p>
+			<p>Languages:</p>
+			<% User.find(i.id).languages.each do |z| %> 
+				<%= z.lang_name%>
 			<% end %>
 		<% end %>
 	<% end %>
@@ -35,7 +34,6 @@
 <a href="/edit">Edit Profile</a>
 </div>
 <div id="right">
-<h2>Location of PairCoders</h2>
 <% if @x %>
 <% my_url = "http://maps.google.com/maps/api/staticmap?size=850x600&sensor=false&zoom=12" %>
 <% @x.each do |location| %> 

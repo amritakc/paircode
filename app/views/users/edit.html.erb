@@ -13,14 +13,14 @@
 	<p><input type = "hidden" name = "user[longitude]" ></p>
 	<p><input type = "submit" value = "Submit" class="butts">
 </form>
-<h3> Lanuages I know</h3>
+<h3> Lanuages I'm Learning</h3>
 	<% @languages.each do | x | %>
 		<% if @profile.languages.include?(x) %>
-			<p><%= x.lang_name %></p>
+			<p><%= x.lang_name %> <a href= "/languages/<%= x.id %>" data-method='delete'>Finished!</a></p>
 		<% end %>	
 	<% end %>
-<h3>I learned more languages!</h3>
-<form action = '/users/<%= @profile.id %>/update_language' method = 'post'>
+<h3>Learning More Languages</h3>
+<form action = '/languages/<%= @profile.id %>/update' method = 'post'>
 	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
 	<input type='hidden' name='_method' value='patch'>
 	<% @languages.each do | x | %>
