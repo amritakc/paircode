@@ -5,7 +5,6 @@
 <h1>New Users</h1>
 
 
-
 <form action = '/user/create' method = 'post'>
 	<div id = "left">
 	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
@@ -19,18 +18,13 @@
 	<p><input type = "hidden" name = "user[longitude]" ></p>
 	<p>Password:<input type = "text" name = "user[password]"></p>
 	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"></p>
+
 </div>
 <div id = "right">
 	<p>Languages</p>
-	<p><input type = "checkbox" name="ruby" value="1">Ruby/Rails</p>
-	<p><input type = "checkbox" name="python" value="2">Python</p>
-	<p><input type = "checkbox" name="javascript" value="3">JavaScript</p>
-	<p><input type = "checkbox" name="java" value="4">Java</p>
-	<p><input type = "checkbox" name="C" value="5">C#</p>
-	<p><input type = "checkbox" name="php" value="6">PHP</p>
-	<p><input type = "checkbox" name="ios" value="7">IOS</p>
-	<p><input type = "checkbox" name="sql" value="8">SQL</p>
-	<p><input type = "checkbox" name="Cplus" value="9">C++</p>
+	<% @languages.each do | x | %>
+		<p><input type = "checkbox" name="language[]" value="<%= x.id %>" ><%= x.lang_name %></p>
+	<% end %>
 	<p><input type = "submit" value = "Register" class="butts">
 </div>
 </form>

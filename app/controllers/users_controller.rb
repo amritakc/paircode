@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	# before_action :require_correct_user, only: [:show]
 
 	def new
+		@languages = Language.all
 	end
 
 	def create
@@ -11,34 +12,12 @@ class UsersController < ApplicationController
 			user.save
 			session[:user_id] = user.id 
 
-			if params[:ruby]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:ruby]))
+			if params[:language]
+				params[:language].each do | x |
+					x.to_i
+					Ninja.create(user: User.find(session[:user_id]), language: Language.find(x))
+				end
 			end
-			if params[:python]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:python]))
-			end
-			if params[:javascript]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:javascript]))
-			end
-			if params[:java]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:java]))
-			end
-			if params[:C]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:C]))
-			end
-			if params[:php]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:php]))
-			end
-			if params[:ios]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:ios]))
-			end
-			if params[:sql]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:sql]))
-			end
-			if params[:Cplus]
-				Ninja.create(user: User.find(session[:user_id]), language: Language.find(params[:Cplus]))
-			end
-
 			redirect_to '/dashboard/%d' % session[:user_id]
 		else
 			flash[:error] = user.errors.full_messages
@@ -129,7 +108,7 @@ class UsersController < ApplicationController
 
 	def delete
 		User.find(session[:user_id]).destroy
-		session.clear
+		# session.clear
 		redirect_to "/"
 	end
 
@@ -139,3 +118,16 @@ class UsersController < ApplicationController
 	end
 
 end
+
+# <select multiple='multiple' name = "language[]">
+# 		<option value = 'ruby'>Ruby/Rails</option>
+# 		<option value = 'python'>Python</option>
+# 		<option value = 'javascript'>JavaScript</option>
+# 		<option value = 'java'>Java</option>
+# 		<option value = 'C'>C#</option>
+# 		<option value = 'php'>PHP</option>
+# 		<option value = 'ios'>Ios</option>
+# 		<option value = 'sql'>SQL</option>
+# 		<option value = 'ruby'>C++</option>
+	
+# 	</select>	
