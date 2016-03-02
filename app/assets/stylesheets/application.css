@@ -1,19 +1,42 @@
 * {
   font-family: Tahoma;
 }
+body{
+	background-color: #DFDED4;
+	margin:0 auto;
+	text-align: center;
+}
+.navbar {
+	/*width: 100%;*/
+	background:#f44336;
 
+}
+.navbar-inverse .navbar-nav>li>a{
+	color:white;
+}
 #pic, #login{
 
 	display: block;
+}
+#pic {
+	margin-bottom: 100px;
 }
 #login {
 	width: 390px;
 	display: inline-block;
 	vertical-align: top;
-	margin-right: 80px;
-	/*border: 1px solid black;*/
+	/*margin-right: 80px;*/
+	/*text-align: left;*/
 }
-
+label{
+	text-align: left;
+	margin-right: 80%;
+}
+#left, #middle, #right{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 6%;
+}
 #left{
 
 	display: inline-block;
@@ -21,12 +44,12 @@
 	position:relative;
 	
 }
-#right{
-	float:right;
-	position:relative;
-	width: 30%;
-	margin-top: 10%;
-	padding-right: 300px;
+#right {
+	text-align: left;
+	font-weight: bold;
+}
+ul {
+	list-style: none;
 }
 
 h1 {
@@ -34,12 +57,6 @@ h1 {
 	font-weight: bold;
 	margin-top: 30px;
 	margin-bottom: 10px;
-}
-
-body{
-	background-color: #DFDED4;
-	margin:0 auto;
-	text-align: center;
 }
 
 a:link, a:visited {
@@ -63,12 +80,17 @@ a:hover, a:active {
     display: inline-block;
     font-size: 15px
 }
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+#coders{
+	height: 700px;
+	overflow: scroll;
+}
+#map {
+	padding-top: 7%;
+}
+#edit_languages {
+	font-weight: bold;
+	/*text-align: left;*/
+}
+#learned {
+	margin-bottom: 180px;
+}

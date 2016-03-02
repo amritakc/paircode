@@ -1,42 +1,67 @@
-<h1>Edit Profile</h1>
-
-<form action = '/users/<%= @profile.id %>/update' method = 'post'>
-	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
-	<input type='hidden' name='_method' value='patch'>
-	<p>Name:<input type = "text" name = "name" value="<%= @profile.name%>"></p>
-	<p>Alias:<input type = "text" name = "alias" value="<%= @profile.alias%>"></p>
-	<p>Email:<input type = "text" name = "email" value="<%= @profile.email%>"></p>
-	<p>Street:<input type = "text" name = "street"value="<%= @profile.street%>"></p>
-	<p>City:<input type = "text" name = "city" value="<%= @profile.city%>"></p>
-	<p>State:<input type = "text" name = "state"value="<%= @profile.state%>"></p>
-	<p><input type = "hidden" name = "user[latitude]" ></p>
-	<p><input type = "hidden" name = "user[longitude]" ></p>
-	<p><input type = "submit" value = "Submit" class="butts">
-</form>
-<h3> Lanuages I'm Learning</h3>
-	<% @languages.each do | x | %>
-		<% if @profile.languages.include?(x) %>
-			<p><%= x.lang_name %> <a href= "/languages/<%= x.id %>" data-method='delete'>Finished!</a></p>
-		<% end %>	
-	<% end %>
-<h3>Learning More Languages</h3>
-<form action = '/languages/<%= @profile.id %>/update' method = 'post'>
-	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
-	<input type='hidden' name='_method' value='patch'>
-	<% @languages.each do | x | %>
-		<% if @profile.languages.exclude?(x) %>
-			<p><input type = "checkbox" name="language[]" value="<%= x.id %>" ><%= x.lang_name %></p>
-		<% end %>	
-	<% end %>
-	<p><input type = "submit" value = "Add Language" class="butts">
-</form>
+<div class="container">
+	<h1>Edit Profile</h1>
+	<div class="col-md-4">
+		<form role="form" action='/users/<%= @profile.id %>/update' method='post'>
+			<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+			<input type='hidden' name='_method' value='patch'>
+			<div class="form-group">
+				<label for="name">Name:</label>
+		    	<input type="text" class="form-control" id="name" name="user[name]"value="<%= @profile.name%>">
+			</div>
+			<div class="form-group">
+				<label for="name">Alias:</label>
+		    	<input type="text" class="form-control" id="alias" name="user[alias]"value="<%= @profile.alias%>">
+			</div>
+			<div class="form-group">
+				<label for="name">Email:</label>
+		    	<input type="email" class="form-control" id="email" name="user[email]"value="<%= @profile.email%>">
+			</div>
+			<div class="form-group">
+				<label for="name">Street:</label>
+		    	<input type="text" class="form-control" id="street" name="user[street]"value="<%= @profile.street%>">
+			</div>
+			<div class="form-group">
+				<label for="name">City:</label>
+		    	<input type="text" class="form-control" id="city" name="user[city]"value="<%= @profile.city%>">
+			</div>
+			<div class="form-group">
+				<label for="name">State:</label>
+		    	<input type="text" class="form-control" id="state" name="user[state]"value="<%= @profile.state%>">
+			</div>
+			<input type = "hidden" name = "user[latitude]" >
+			<input type = "hidden" name = "user[longitude]" >
+			<input type = "submit" value = "Submit" class="butts">
+		</form>
+	</div>
+	
+	<div class="col-md-4" id="edit_languages">
+		<h3>Learning More Languages</h3>
+		<form action = '/languages/<%= @profile.id %>/update' method = 'post'>
+			<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+			<input type='hidden' name='_method' value='patch'>
+			<% @languages.each do | x | %>
+				<ul>
+					<% if @profile.languages.exclude?(x) %>
+						<li><input type = "checkbox" name="language[]" value="<%= x.id %>" ><%= x.lang_name %></li>
+					<% end %>
+				</ul>
+			<% end %>	
+			<input type = "submit" value = "Add Language" class="butts">
+		</form>
+	</div>
+	<div class="col-md-4" id="learned">
+		<h3> Lanuages I'm Learning</h3>
+			<% @languages.each do | x | %>
+				<% if @profile.languages.include?(x) %>
+					<p><%= x.lang_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href= "/languages/<%= x.id %>" data-method='delete'>Finished!</a></p>
+				<% end %>	
+			<% end %>
+	</div>
 
 <form action="/users/<%= @profile.id %>" method="post">
 	<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
 	<input type="hidden" name="_method" value="delete">
 	<input type="submit" value="Delete Account" class="butts">
 </form>
-<br>
-<a href="/dashboard/<%= @profile.id %>">Back</a>
 
-
+</div>

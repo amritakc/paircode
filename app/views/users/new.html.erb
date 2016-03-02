@@ -1,35 +1,60 @@
 <div id= "pic">
-<%= image_tag("paircode_logo_2_for_light_bg.png")%>
+	<%= image_tag("paircode_logo_2_for_light_bg.png")%>
 </div>
 
-<h1>New Users</h1>
-
-
-<form action = '/user/create' method = 'post'>
-	<div id = "left">
-	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
-	<p>Name:<input type = "text" name = "user[name]"></p>
-	<p>Alias:<input type = "text" name = "user[alias]"></p>
-	<p>Email:<input type = "text" name = "user[email]"></p>
-	<p>Street:<input type = "text" name = "user[street]"></p>
-	<p>City:<input type = "text" name = "user[city]"></p>
-	<p>State:<input type = "text" name = "user[state]"></p>
-	<p><input type = "hidden" name = "user[latitude]" ></p>
-	<p><input type = "hidden" name = "user[longitude]" ></p>
-	<p>Password:<input type = "text" name = "user[password]"></p>
-	<p>Password Confirmation:<input type = "text" name = "user[password_confirmation]"></p>
-
-</div>
-<div id = "right">
-	<p>Languages I'm Learning</p>
-	<% @languages.each do | x | %>
-		<p><input type = "checkbox" name="language[]" value="<%= x.id %>" ><%= x.lang_name %></p>
-	<% end %>
-	<p><input type = "submit" value = "Register" class="butts">
-</div>
+<form role='form' action = '/user/create' method = 'post'>
+	<div id = "left" class="col-lg-3">
+		<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+		<div class="form-group">
+	 		<label for="name">Name:</label>
+		    <input type="text" class="form-control" id="name" name="user[name]">
+		</div>
+		<div class="form-group">
+	 		<label for="alias">Alias:</label>
+		    <input type="text" class="form-control" id="alias" name="user[alias]">
+		</div>
+		<div class="form-group">
+	 		<label for="name">Email:</label>
+		    <input type="text" class="form-control" id="email" name="user[email]">
+		</div>
+		<% if flash[:error] %>
+			<% flash[:error].each do |value| %>
+				<%= value %><br>
+			<% end %>
+		<% end %>
+		<a href="/" class="butts">Already Registered</a>
+	</div>
+	<div id ="middle" class="col-lg-3">
+		<div class="form-group">
+	 		<label for="name">Street:</label>
+		    <input type="text" class="form-control" id="street" name="user[street]">
+		</div>
+		<div class="form-group">
+	 		<label for="name">City:</label>
+		    <input type="text" class="form-control" id="city" name="user[city]">
+		</div>
+		<div class="form-group">
+	 		<label for="name">State:</label>
+		    <input type="text" class="form-control" id="state" name="user[state]">
+		</div>
+		<div class="form-group">
+	 		<label for="name">Password:</label>
+		    <input type="text" class="form-control" id="password" name="user[password]">
+		</div>
+		<div class="form-group">
+	 		<label for="name">Password Confirmation:</label>
+		    <input type="text" class="form-control" id="password_confirmation" name="user[password_confirmation]">
+		</div>
+		<input type = "hidden" name = "user[latitude]" >
+		<input type = "hidden" name = "user[longitude]" >
+	</div>
+	<div id = "right" class="col-lg-3">
+		<h4>Languages I'm Learning</h4>
+		<ul>
+		<% @languages.each do | x | %>
+			<li><input type = "checkbox" name="language[]" value="<%= x.id %>" ><%= x.lang_name %></li>
+		<% end %>
+		</ul>
+		<input type = "submit" value = "Register" class="butts">
+	</div>
 </form>
-<% if flash[:error] %>
-	<% flash[:error].each do |value| %>
-		 <%= value %><br>
-	<% end %>
-<% end %>

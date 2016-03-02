@@ -1,47 +1,32 @@
-<div id="left">
-
-<h1>Welcome <%= @profile.name%></h1>
-
-
-<h3>PairCoders near you</h3>
-<% if @x %>
-	<% @x.each do |i| %>
-		<% if i.id != session[:user_id] %>
-			<p><%= i.id %> - <%= i.alias %></p>
-			<p><%= i.email %></p>
-			<p>Languages:</p>
-			<% User.find(i.id).languages.each do |z| %> 
-				<%= z.lang_name%>
+<div class='container'>
+	<h1>Welcome <%= @profile.name%></h1>
+	<div class="col-lg-4">
+		<h3>PairCoders near you</h3>
+		<div id="coders">
+			<% if @x %>
+				<% @x.each do |i| %>
+					<% if i.id != session[:user_id] %>
+						<h4><%= i.alias %></h4>
+						<p><%= i.email %></p>
+						<p>Languages:</p>
+						<% User.find(i.id).languages.each do |z| %> 
+							<%= z.lang_name%>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% else %>
+				<%= flash[:nobody] %>
 			<% end %>
-		<% end %>
-	<% end %>
-<% end %>
-<br>
-<br>
- <form action='/' method='post'>
-    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out' class="butts">
-  </form>
-<br>
-  <form action="/users/<%= @profile.id %>" method="post">
-	<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete Account" class="butts">
-</form>
-
-<br>
-<a href="/edit">Edit Profile</a>
+		</div>
+	</div>
+	<div id="map" class="col-lg-6">
+		<% if @x %>
+			<% my_url = "http://maps.google.com/maps/api/staticmap?size=850x600&sensor=false&zoom=12" %>
+			<% @x.each do |location| %> 
+				<% my_url += "&markers=#{location.latitude}%2C#{location.longitude}" %>    
+			<% end %>
+			<%= image_tag my_url %>
+		<%end%>
+	</div>
 </div>
-<div id="right">
-<% if @x %>
-<% my_url = "http://maps.google.com/maps/api/staticmap?size=850x600&sensor=false&zoom=12" %>
-<% @x.each do |location| %> 
-<% my_url += "&markers=|label:#{location.id}|#{location.latitude}%2C#{location.longitude}" %>    
-<% end %>
-<%= image_tag my_url %>
-<%end%>
-</div>
-
-
 

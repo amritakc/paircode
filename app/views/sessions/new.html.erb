@@ -1,15 +1,22 @@
-<div id= "pic">
-<%= image_tag("paircode_logo_2_for_light_bg.png")%>
-</div>
-<div id = "login">
-	<h1>Returning Users</h1>
-	<form action = '/session/create' method = 'post'>
-		<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
-		<p>Email:<input type = "text" name = "email"><br></p>
-		<p>Password:<input type = "text" name = "password"><br></p>
-		<p><input type = "submit" value = "Login"></p>
-	</form>
-<div>
+<div class="container">
+	<div id= "pic">
+		<%= image_tag("paircode_logo_2_for_light_bg.png")%>
+	</div>
+	<div id = "login">
+		<h1>Returning Users</h1>
+		<form role="form" action='/session/create' method='post'>
+			<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+			<div class="form-group">
+				<label for="Email">Email:</label>
+	    		<input type="text" class="form-control" id="email" name="email">
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+	    		<input type="text" class="form-control" id="password" name="password">
+			</div>
+			<input type = "submit" value = "Login">
+		</form>
+	</div>
 
 	<%= flash[:errors] %>
 <br>
@@ -22,4 +29,4 @@
 <a href = '/new'>New User</a>
 
 
-
+</div>
