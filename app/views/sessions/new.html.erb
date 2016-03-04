@@ -2,13 +2,13 @@
 	<div id= "pic">
 		<%= image_tag("paircode_logo_2_for_light_bg.png")%>
 	</div>
-	<div id = "login">
+	<div id = "login" class="col-md-offset-3 col-md-5">
 		<h1>Returning Users</h1>
 		<form role="form" action='/session/create' method='post'>
 			<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
 			<div class="form-group">
 				<label for="Email">Email:</label>
-	    		<input type="text" class="form-control" id="email" name="email">
+	    		<input type="email" class="form-control" id="email" name="email">
 			</div>
 			<div class="form-group">
 				<label for="password">Password:</label>
@@ -16,17 +16,12 @@
 			</div>
 			<input type = "submit" value = "Login">
 		</form>
+		<%= flash[:errors] %>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a href = '/new' class='butts'>New User</a>
 	</div>
-
-	<%= flash[:errors] %>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<a href = '/new'>New User</a>
-
-
 </div>

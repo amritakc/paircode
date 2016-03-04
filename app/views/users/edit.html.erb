@@ -53,7 +53,7 @@
 		<h3> Lanuages I'm Learning</h3>
 			<% @languages.each do | x | %>
 				<% if @profile.languages.include?(x) %>
-					<p><%= x.lang_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href= "/languages/<%= x.id %>" data-method='delete'>Finished!</a></p>
+					<p><%= x.lang_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href= "/languages/<%= x.id %>" data-method='delete' class="butts">Finished!</a></p>
 				<% end %>	
 			<% end %>
 	</div>
