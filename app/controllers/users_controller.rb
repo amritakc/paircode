@@ -65,15 +65,4 @@ class UsersController < ApplicationController
 
 end
 
-# <select multiple='multiple' name = "language[]">
-# 		<option value = 'ruby'>Ruby/Rails</option>
-# 		<option value = 'python'>Python</option>
-# 		<option value = 'javascript'>JavaScript</option>
-# 		<option value = 'java'>Java</option>
-# 		<option value = 'C'>C#</option>
-# 		<option value = 'php'>PHP</option>
-# 		<option value = 'ios'>Ios</option>
-# 		<option value = 'sql'>SQL</option>
-# 		<option value = 'ruby'>C++</option>
-	
-# 	</select>	
+
