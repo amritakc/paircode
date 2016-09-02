@@ -3,7 +3,7 @@
 	<div class="col-lg-4">
 		<h3>PairCoders near you</h3>
 		<div id="coders">
-			<% if @x %>
+			<% if @x.length > 1 %>
 				<% @x.each do |i| %>
 					<% if i.id != session[:user_id] %>
 						<h4><%= i.alias %></h4>

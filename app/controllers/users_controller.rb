@@ -25,17 +25,17 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def show
-		
+	def show	
 		user = User.find(session[:user_id])
 		@profile =  user
 		if user.geocoded?
 			@x = User.near(user.address, 10)
-			if @x == []
+			if @x.length <= 1
 				flash[:nobody] = "There are no PairCoders currently in your area."
 			end
 		end
 	end
+
 	def edit
 		@profile = User.find(session[:user_id])
 		@languages = Language.all
