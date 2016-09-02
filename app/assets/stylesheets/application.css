@@ -93,3 +93,6 @@ a:hover, a:active {
 #learned {
 	margin-bottom: 180px;
 }
+ul.a{
+	list-style-type: circle;
+}

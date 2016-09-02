@@ -6,12 +6,14 @@
 			<% if @x.length > 1 %>
 				<% @x.each do |i| %>
 					<% if i.id != session[:user_id] %>
-						<h4><%= i.alias %></h4>
-						<p><%= i.email %></p>
-						<p>Languages:</p>
-						<% User.find(i.id).languages.each do |z| %> 
-							<%= z.lang_name%>
-						<% end %>
+						<ul class = "a">
+							<li><h4><%= i.alias %></h4></li>
+							<p><%= i.email %></p>
+							<p>Languages:</p>
+							<% User.find(i.id).languages.each do |z| %> 
+								<%= z.lang_name%>
+							<% end %>
+						</ul>
 					<% end %>
 				<% end %>
 			<% else %>
