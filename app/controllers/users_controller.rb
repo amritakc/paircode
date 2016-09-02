@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
 	def delete
 		User.find(session[:user_id]).destroy
-		# session.clear
+		session.clear
 		redirect_to "/"
 	end
 
