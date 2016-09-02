@@ -29,6 +29,20 @@
     			</ul>
     		</div>
     	</nav>
+    <% else %>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><%= image_tag("paircode_logo_wht_4_for_light_bg copy.png", alt: "Paircode logo", width: "30%")%></a>
+                </div>
+                <ul class="nav navbar-nav">                      
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Login</a></li>
+                    <li><a href="/new">Register</a></li>
+                </ul>
+            </div>
+        </nav>        
 	<% end %>
 
 <%= yield %>
