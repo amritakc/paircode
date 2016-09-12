@@ -8,19 +8,19 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.new(user_params)
-		if user.valid? == true
+		if user.valid? == true && params[:language]
 			user.save
 			session[:user_id] = user.id 
-
-			if params[:language]
-				params[:language].each do | x |
-					x.to_i
-					Ninja.create(user: User.find(session[:user_id]), language: Language.find(x))
-				end
-			end
+			params[:language].each do | x |
+				x.to_i
+				Ninja.create(user: User.find(session[:user_id]), language: Language.find(x))
+			end		
 			redirect_to '/dashboard/%d' % session[:user_id]
+		elsif user.valid? == false
+			flash[:error] = user.errors.full_messages 
+			redirect_to '/new'
 		else
-			flash[:error] = user.errors.full_messages
+			flash[:language_error] = ["Please select language(s)"]
 			redirect_to '/new'
 		end
 	end
