@@ -56,26 +56,27 @@
 			<input type = "submit" value = "Add Language" class="butts">
 		</form>
 	</div>
-	<div class="col-md-4" id="learned">
-		<h3> Lanuages I'm Learning</h3>
-		<table class='table'>
-<!-- 			<thead>
-				<tr>
-					<th>Language</th>
-					<th>?</th>
-				</tr>
-			</thead> -->
-			<% @languages.each do | x | %>
-				<% if @profile.languages.include?(x) %>
-					<tr>
-						<td><%= x.lang_name %></td>
-						<td><a href= "/languages/<%= x.id %>" data-method='delete' class="butts">Finished!</a></td>
-					</tr>
-		</table>
-					
-				<% end %>	
-			<% end %>
-	</div>
+	<div class="col-md-4" id="edit_languages">
+		<h3>Learning More Languages</h3>
+		<div class="table-responsive">
+		 	<table class="table">
+			    <thead>
+			      <tr>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      	<% @languages.each do | x | %>
+						<% if @profile.languages.include?(x) %>
+							<tr>
+								<td><%= x.lang_name %></td>
+								<td><a href= "/languages/<%= x.id %>" data-method='delete' class="butts">Finished!</a></td>
+							</tr>
+						<% end %>	
+					<% end %>
+			    </tbody>
+		  	</table>
+		</div>
+
 
 <%= flash[:admin_error] %>
 
