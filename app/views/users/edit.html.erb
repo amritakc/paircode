@@ -32,6 +32,13 @@
 			<input type = "hidden" name = "user[longitude]" >
 			<input type = "submit" value = "Submit" class="butts">
 		</form>
+		<br>
+		<br>
+		<form action="/users/<%= @profile.id %>" method="post">
+			<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete Account" class="butts">
+		</form>
 	</div>
 	
 	<div class="col-md-4" id="edit_languages">
@@ -70,11 +77,6 @@
 			<% end %>
 	</div>
 
-<form action="/users/<%= @profile.id %>" method="post">
-	<input name = "authenticity_token" value="<%= form_authenticity_token%>" type ="hidden">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete Account" class="butts">
-</form>
 <%= flash[:admin_error] %>
 
 </div>
