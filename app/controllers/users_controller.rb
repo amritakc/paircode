@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 	end
 
 	def delete
+		Ninja.where(user_id:session[:user_id]).destroy_all
 		User.find(session[:user_id]).destroy
 		session.clear
 		redirect_to "/"
