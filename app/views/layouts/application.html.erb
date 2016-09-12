@@ -14,15 +14,12 @@
 <body>
 
 	<% if current_user %>
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-default">
 			<div class="container-fluid">
     			<div class="navbar-header">
     				<a class="navbar-brand" href="#"><%= image_tag("paircode_logo_wht_4_for_light_bg copy.png", alt: "Paircode logo", width: "30%")%></a>
     			</div>
-    			<ul class="nav navbar-nav">
-    				    				
-    			</ul>
-    			<ul class="nav navbar-nav navbar-right">
+    			<ul class="collapse navbar-collapse">
     				<li><a href="/edit">Edit Profile</a></li>
           			<li><a href="/dashboard/<%= @profile.id %>">Find PairCoders</a></li>
     				<li><a href="/" data-method="delete"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
