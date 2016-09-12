@@ -51,9 +51,21 @@
 	</div>
 	<div class="col-md-4" id="learned">
 		<h3> Lanuages I'm Learning</h3>
+		<table class='table'>
+<!-- 			<thead>
+				<tr>
+					<th>Language</th>
+					<th>?</th>
+				</tr>
+			</thead> -->
 			<% @languages.each do | x | %>
 				<% if @profile.languages.include?(x) %>
-					<p><%= x.lang_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href= "/languages/<%= x.id %>" data-method='delete' class="butts">Finished!</a></p>
+					<tr>
+						<td><%= x.lang_name %></td>
+						<td><a href= "/languages/<%= x.id %>" data-method='delete' class="butts">Finished!</a></td>
+					</tr>
+		</table>
+					
 				<% end %>	
 			<% end %>
 	</div>
@@ -63,5 +75,6 @@
 	<input type="hidden" name="_method" value="delete">
 	<input type="submit" value="Delete Account" class="butts">
 </form>
+<%= flash[:admin_error] %>
 
 </div>
