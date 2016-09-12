@@ -53,10 +53,15 @@ class UsersController < ApplicationController
 	end
 
 	def delete
-		Ninja.where(user_id:session[:user_id]).destroy_all
-		User.find(session[:user_id]).destroy
-		session.clear
-		redirect_to "/"
+		if(session[:user_id]===10)
+			flash[:admin_error] = ["This account cannot be deleted while it is being used for demonstration purposes."]
+			redirect_to '/dashboard/%d' % session[:user_id]
+		else			
+			Ninja.where(user_id:session[:user_id]).destroy_all
+			User.find(session[:user_id]).destroy
+			session.clear
+			redirect_to "/"
+		end
 	end
 
 	private
